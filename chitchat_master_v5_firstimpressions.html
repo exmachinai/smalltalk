@@ -6,7 +6,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#1B2A4A">
     <title>Chit-Chat Mastery - Smalltalk for Business</title>
-    <!-- v5.1 - 11 Lessons, First Impressions, Info Lightbulb -->
+    <!-- v5.1 - 10 Lessons, First Impressions integrated in L1, Info Lightbulb -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
@@ -289,8 +289,8 @@
 
 
         /* INFO LIGHTBULB */
-        .info-btn { width:32px;height:32px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.25);background:none;color:rgba(255,255,255,0.85);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;font-size:18px; }
-        .info-btn:hover { background:rgba(255,255,255,0.15); }
+        .info-btn { width:34px;height:34px;border-radius:50%;border:2px solid rgba(212,168,83,0.6);background:rgba(212,168,83,0.15);color:#FFD700;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;font-size:20px;line-height:1; }
+        .info-btn:hover { background:rgba(212,168,83,0.3);border-color:rgba(212,168,83,0.8); }
         .info-overlay { position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);z-index:200;display:flex;align-items:center;justify-content:center;padding:20px; animation:fadeUp .2s ease; }
         .info-modal { background:white;border-radius:var(--radius);max-width:420px;width:100%;padding:28px 24px;box-shadow:var(--shadow-lg);text-align:center; }
         .info-modal-icon { font-size:40px;margin-bottom:12px; }
@@ -374,7 +374,7 @@
                 yourScore: 'Dein Ergebnis',
                 selectAnswer: 'Wähle eine Antwort',
                 infoTitle: 'Willkommen bei Chit-Chat Mastery!',
-                infoText: 'Dein interaktiver Business-Kommunikations-Coach, basierend auf 10 Fachbüchern und wissenschaftlicher Forschung. Lerne in 11 Lektionen die Kunst des professionellen Small Talks — von ersten Eindrücken über Storytelling bis zur Krisennavigation. Jede Lektion enthält Theorie, Best & Worst Practice, praktische Sätze zum Anhören und ein Quiz. Sammle XP, steige auf und werde zum Chief Chit-Chat Officer!',
+                infoText: 'Dein interaktiver Business-Kommunikations-Coach, basierend auf 10 Fachbüchern und wissenschaftlicher Forschung. Lerne in 10 Lektionen die Kunst des professionellen Small Talks — von ersten Eindrücken über Storytelling bis zur Krisennavigation. Jede Lektion enthält Theorie, Best & Worst Practice, praktische Sätze zum Anhören und ein Quiz. Sammle XP, steige auf und werde zum Chief Chit-Chat Officer!',
                 recognizeTechnique: 'Erkenne die Technik',
                 defendYourself: 'Verteidige dich',
                 useEthical: 'Nutze ethische Alternative'
@@ -439,7 +439,7 @@
                 yourScore: 'Your Score',
                 selectAnswer: 'Select an answer',
                 infoTitle: 'Welcome to Chit-Chat Mastery!',
-                infoText: 'Your interactive business communication coach, based on 10 expert books and scientific research. Master the art of professional small talk across 11 lessons — from first impressions to storytelling to crisis navigation. Each lesson includes theory, best & worst practice, practical phrases with audio, and a quiz. Earn XP, level up, and become a Chief Chit-Chat Officer!',
+                infoText: 'Your interactive business communication coach, based on 10 expert books and scientific research. Master the art of professional small talk across 10 lessons — from first impressions to storytelling to crisis navigation. Each lesson includes theory, best & worst practice, practical phrases with audio, and a quiz. Earn XP, level up, and become a Chief Chit-Chat Officer!',
                 recognizeTechnique: 'Recognize the Technique',
                 defendYourself: 'Defend Yourself',
                 useEthical: 'Use Ethical Alternative'
@@ -449,9 +449,9 @@
         // PROFESSIONALITY LEVELS
         var profLevels = [
             { id: 1, name: { de: 'Chit-Chat Novice', en: 'Chit-Chat Novice' }, minAvg: 0, minLessons: 0, icon: '🌱', color: '#ADB5BD' },
-            { id: 2, name: { de: 'Chit-Chat Practitioner', en: 'Chit-Chat Practitioner' }, minAvg: 50, minLessons: 11, icon: '💬', color: '#4A90D9' },
-            { id: 3, name: { de: 'Chit-Chat Professional', en: 'Chit-Chat Professional' }, minAvg: 70, minLessons: 11, icon: '🎯', color: '#D4A853' },
-            { id: 4, name: { de: 'Chief Chit-Chat Officer', en: 'Chief Chit-Chat Officer' }, minAvg: 90, minLessons: 11, icon: '👑', color: '#FFD700' }
+            { id: 2, name: { de: 'Chit-Chat Practitioner', en: 'Chit-Chat Practitioner' }, minAvg: 50, minLessons: 10, icon: '💬', color: '#4A90D9' },
+            { id: 3, name: { de: 'Chit-Chat Professional', en: 'Chit-Chat Professional' }, minAvg: 70, minLessons: 10, icon: '🎯', color: '#D4A853' },
+            { id: 4, name: { de: 'Chief Chit-Chat Officer', en: 'Chief Chit-Chat Officer' }, minAvg: 90, minLessons: 10, icon: '👑', color: '#FFD700' }
         ];
 
         // LESSONS DATA
@@ -462,8 +462,15 @@
                 en: 'The Power Entry'
             },
             theory: {
-                de: `<div>
-                    <p>Die ersten 7 Sekunden beim Betreten eines Raumes bestimmen 55% der Wahrnehmung durch andere Menschen. Dies ist nicht esoterisch – es ist Neurowissenschaft.</p>
+                de: `<div class="theory-section">
+                    <div class="theory-title">Der Power-Eintritt: Die Wissenschaft des ersten Eindrucks</div>
+                    <div class="theory-text">Die ersten 7 Sekunden beim Betreten eines Raumes bestimmen 55% der Wahrnehmung durch andere Menschen. Dies ist nicht esoterisch – es ist Neurowissenschaft. Die Harvard-Forscherin <strong>Amy Cuddy</strong> hat herausgefunden, dass das Gehirn bei jeder Erstbegegnung zwei fundamentale Fragen beantwortet: <strong>Kann ich dieser Person vertrauen?</strong> (Warmth — Wärme) und <strong>Kann ich diese Person respektieren?</strong> (Power — Kompetenz). Die charismatischsten Menschen meistern die Balance zwischen beiden Dimensionen.</div>
+                    <div class="framework">
+                        <div class="framework-title">Thin-Slicing: Blitzschnelle Mustererkennung</div>
+                        <div class="framework-text">Dein Gehirn verarbeitet in Sekundenbruchteilen riesige Informationsmengen und fällt sofortige Urteile — das nennt man <strong>Thin-Slicing</strong>. Bevor du ein einziges Wort sagst, hat dein Gegenüber bereits entschieden, ob du selbstsicher oder unsicher wirkst, ob du vertrauenswürdig oder verdächtig erscheinst, und ob du bemerkenswert oder vergessbar bist. Der <strong>Halo-Effekt</strong> verstärkt dies: Ein einziges starkes positives Signal färbt die gesamte Wahrnehmung.</div>
+                    </div>
+                    <div class="theory-text" style="margin-top:14px;">Amy Cuddy sagt: Wenn wir uns mächtig fühlen, sprechen wir langsamer und nehmen uns mehr Zeit. Wir hetzen nicht. Wir haben keine Angst vor Pausen. Die drei Säulen des ersten Eindrucks sind: <strong>Körperhaltung</strong> (aufrecht = Selbstbewusstsein), <strong>Blickkontakt</strong> (2–3 Sekunden, dann natürlich brechen) und <strong>Mimik</strong> (leichtes Lächeln = nahbar und kompetent).</div>
+                    <p style="margin-top:14px;">
                     <h3>Die SOFTEN-Technik</h3>
                     <p>Merke dir die folgenden sechs Elemente:</p>
                     <ul style="margin: 12px 0 12px 20px;">
@@ -2730,92 +2737,7 @@ var lesson10 = {
         };
 
 
-var lesson11 = {
-            id: 11,
-            title: { de: "Die Kunst des ersten Eindrucks", en: "The Art of First Impressions" },
-            theory: {
-                de: `<div class="theory-section">
-            <div class="theory-title">Die Wissenschaft hinter dem ersten Eindruck — Amy Cuddy (Harvard)</div>
-            <div class="theory-text">Innerhalb von Bruchteilen einer Sekunde bildet sich dein Gegenüber ein Urteil über dich — und dieses Urteil ist danach extrem schwer zu korrigieren. Die Harvard-Forscherin Amy Cuddy hat herausgefunden, dass das Gehirn bei jeder Erstbegegnung zwei fundamentale Fragen beantwortet: <strong>\u201eKann ich dieser Person vertrauen?\u201c</strong> (Warmth — Wärme) und <strong>\u201eKann ich diese Person respektieren?\u201c</strong> (Power — Kompetenz). Die charismatischsten Menschen meistern die Balance zwischen beiden Dimensionen.</div>
-            <div class="framework">
-                <div class="framework-title">Thin-Slicing: Blitzschnelle Mustererkennung</div>
-                <div class="framework-text">Dein Gehirn verarbeitet in Sekundenbruchteilen riesige Informationsmengen und fällt sofortige Urteile — das nennt man <strong>Thin-Slicing</strong>. Bevor du ein einziges Wort sagst, hat dein Gegenüber bereits entschieden, ob du selbstsicher oder unsicher wirkst, ob du vertrauenswürdig oder verdächtig erscheinst, und ob du bemerkenswert oder vergessbar bist.</div>
-            </div>
-            <div class="framework" style="margin-top:14px;">
-                <div class="framework-title">Der Halo-Effekt: Ein Signal färbt alles</div>
-                <div class="framework-text">Ein einziges starkes positives Signal — z.B. selbstbewusste Körperhaltung oder ruhiger Blickkontakt — färbt die gesamte Wahrnehmung. Wer beim ersten Eindruck ein starkes Signal setzt, wird auch in anderen Dimensionen positiver bewertet. Amy Cuddy sagt: \u201eWenn wir uns mächtig fühlen, sprechen wir langsamer und nehmen uns mehr Zeit. Wir hetzen nicht. Wir haben keine Angst vor Pausen.\u201c</div>
-            </div>
-            <div class="framework" style="margin-top:14px;">
-                <div class="framework-title">Die 3 Säulen: Körperhaltung, Blickkontakt, Mimik</div>
-                <div class="framework-text"><strong>1. Posture (Haltung):</strong> Aufrechte Haltung signalisiert Selbstbewusstsein. Schultern zurück, Brust offen. Bewege dich mit Intention — charismatische Menschen hetzen nie.<br/><br/><strong>2. Eye Contact (Blickkontakt):</strong> Zu wenig = nervös. Zu viel = einschüchternd. Die goldene Regel: 2–3 Sekunden halten, dann natürlich brechen.<br/><br/><strong>3. Facial Expression (Mimik):</strong> Ein entspanntes, leichtes Lächeln wirkt nahbar und selbstsicher. Achtung: Dein 'Resting Face" kann ungewollt einschüchternd wirken — kontrolliere es bewusst.</div>
-            </div>
-            <div class="dialogue-commentary"><strong>Schlüsselerkenntnis:</strong> Erste Eindrücke sind nicht Glück oder Zufall — sie sind <strong>strategisch</strong>. Charismatische Menschen überlassen diese Momente nie dem Zufall. Sie steuern aktiv, wie andere sie wahrnehmen — und das kannst du ab sofort auch.</div>
-        </div>`,
-                en: `<div class="theory-section">
-            <div class="theory-title">The Science Behind First Impressions — Amy Cuddy (Harvard)</div>
-            <div class="theory-text">Within fractions of a second, people form judgments about you — and those judgments are extremely hard to change afterward. Harvard researcher Amy Cuddy discovered that the brain answers two fundamental questions in every first encounter: <strong>"Can I trust this person?"</strong> (Warmth) and <strong>"Can I respect this person?"</strong> (Power). The most charismatic people master the balance between both dimensions.</div>
-            <div class="framework">
-                <div class="framework-title">Thin-Slicing: Rapid Pattern Recognition</div>
-                <div class="framework-text">Your brain processes massive amounts of information in split seconds and makes instant judgments — this is called <strong>Thin-Slicing</strong>. Before you say a single word, the other person has already decided whether you appear confident or uncertain, trustworthy or suspicious, and memorable or forgettable.</div>
-            </div>
-            <div class="framework" style="margin-top:14px;">
-                <div class="framework-title">The Halo Effect: One Signal Colors Everything</div>
-                <div class="framework-text">A single strong positive signal — such as confident posture or calm eye contact — colors the entire perception. Those who set a strong signal at first impression are rated more positively across all dimensions. Amy Cuddy says: "When we feel powerful, we speak more slowly and take more time. We don't rush. We're not afraid to pause."</div>
-            </div>
-            <div class="framework" style="margin-top:14px;">
-                <div class="framework-title">The 3 Pillars: Posture, Eye Contact, Expression</div>
-                <div class="framework-text"><strong>1. Posture:</strong> Straight posture signals confidence. Shoulders back, chest open. Move with intention — charismatic people never rush.<br/><br/><strong>2. Eye Contact:</strong> Too little = nervous. Too much = intimidating. The golden rule: hold for 2–3 seconds, then break naturally.<br/><br/><strong>3. Facial Expression:</strong> A relaxed, slight smile appears approachable and confident. Warning: Your "resting face" may appear intimidating without your awareness — monitor it consciously.</div>
-            </div>
-            <div class="dialogue-commentary"><strong>Key Insight:</strong> First impressions are not luck or chance — they are <strong>strategic</strong>. Charismatic people never leave these moments to chance. They actively control how others perceive them — and you can start doing the same right now.</div>
-        </div>`
-            },
-            bestPractice: {
-                de: `<div class="dialogue-block"><div class="dialogue-title">Best Practice: Der selbstbewusste Auftritt beim Board-Meeting</div><div class="dialogue"><div><strong>Kontext:</strong> Sarah betritt einen Raum voller Senior Executives. Sie kennt niemanden.</div><div><strong>Ihre Strategie:</strong> Sie bleibt kurz an der Tür stehen (kein Hetzen), nimmt einen tiefen Atemzug, richtet die Schultern auf und betritt den Raum mit einem leichten Lächeln. Sie bewegt sich langsam und zielgerichtet zum Getränketisch.</div><div><strong>Am Getränketisch:</strong> Sie hält 2-3 Sekunden Blickkontakt mit einer Person neben ihr, lächelt und sagt: 'Guten Morgen. Ist das Ihr erstes Board-Meeting in diesem Format?"</div></div><div class="commentary"><strong>Warum es funktioniert:</strong> Sarah hat alle drei Säulen aktiviert: aufrechte Haltung (Power), warmes Lächeln (Warmth), und kontrollierter Blickkontakt (Halo-Effekt). Ihr Gegenüber bewertet sie unbewusst als kompetent UND nahbar — die perfekte Charisma-Balance.</div></div>`,
-                en: `<div class="dialogue-block"><div class="dialogue-title">Best Practice: The Confident Entrance at a Board Meeting</div><div class="dialogue"><div><strong>Context:</strong> Sarah enters a room full of senior executives. She doesn't know anyone.</div><div><strong>Her strategy:</strong> She pauses briefly at the door (no rushing), takes a deep breath, straightens her shoulders and enters the room with a slight smile. She moves slowly and purposefully toward the refreshment table.</div><div><strong>At the refreshment table:</strong> She holds eye contact for 2-3 seconds with a person next to her, smiles and says: "Good morning. Is this your first board meeting in this format?"</div></div><div class="commentary"><strong>Why it works:</strong> Sarah activated all three pillars: upright posture (Power), warm smile (Warmth), and controlled eye contact (Halo Effect). The other person unconsciously rates her as competent AND approachable — the perfect charisma balance.</div></div>`
-            },
-            worstPractice: {
-                de: `<div class="dialogue-block"><div class="dialogue-title">Worst Practice: Der unsichtbare Auftritt bei der Kundenveranstaltung</div><div class="dialogue"><div><strong>Kontext:</strong> Tom betritt eine Networking-Veranstaltung eines wichtigen Kunden.</div><div><strong>Was passiert:</strong> Er schleicht rein, Schultern nach vorne, Blick auf das Handy gerichtet. Er vermeidet Blickkontakt, geht schnell zum nächsten Stehtisch und schaut auf sein Getränk. Sein Gesicht zeigt seinen typischen angespannten 'Resting Face"-Ausdruck.</div><div><strong>Das Ergebnis:</strong> Niemand spricht ihn an. Er steht 20 Minuten allein, geht früh und sagt seinem Chef: 'Da waren keine interessanten Leute."</div></div><div class="commentary"><strong>Was schiefgelaufen ist:</strong> Tom hat alle drei Säulen negativ aktiviert: zusammengesunkene Haltung (kein Power-Signal), kein Blickkontakt (kein Warmth-Signal), angespanntes Gesicht (negativer Halo-Effekt). Sein Gehirn wurde per Thin-Slicing sofort als 'nicht ansprechbar" kategorisiert — und er hat es nicht einmal bemerkt.</div></div>`,
-                en: `<div class="dialogue-block"><div class="dialogue-title">Worst Practice: The Invisible Entrance at a Client Event</div><div class="dialogue"><div><strong>Context:</strong> Tom enters a networking event hosted by an important client.</div><div><strong>What happens:</strong> He sneaks in, shoulders hunched forward, eyes on his phone. He avoids eye contact, walks quickly to the nearest standing table and stares at his drink. His face shows his typical tense "resting face" expression.</div><div><strong>The result:</strong> Nobody approaches him. He stands alone for 20 minutes, leaves early and tells his boss: "There were no interesting people there."</div></div><div class="commentary"><strong>What went wrong:</strong> Tom negatively activated all three pillars: slouched posture (no Power signal), no eye contact (no Warmth signal), tense face (negative Halo Effect). His brain was instantly categorized via Thin-Slicing as "unapproachable" — and he didn't even notice.</div></div>`
-            },
-            phrases: {
-                de: [
-                    { situation: 'Ersten Raum betreten — Haltung einnehmen', text: 'Stell dir vor, ein unsichtbarer Faden zieht dich am Scheitel nach oben. Schultern zurück, Brust offen.', tip: 'Die String-from-the-top-Technik — sofortige Haltungskorrektur' },
-                    { situation: 'Blickkontakt herstellen — die goldene Regel', text: 'Halte Blickkontakt für 2–3 Sekunden, dann brich natürlich ab. Nicht starren, nicht wegschauen.', tip: 'Zu wenig = nervös, zu viel = einschüchternd — die Balance zählt' },
-                    { situation: 'Den Raum betreten mit Intention', text: 'Nicht hetzen, nicht zögern. Bewege dich mit Absicht — als gehörtest du hierher.', tip: 'Charismatische Menschen kontrollieren ihr Tempo' },
-                    { situation: 'Das Resting Face kontrollieren', text: 'Überprüfe dein Gesicht: leichtes Lächeln, entspannte Stirn, offener Ausdruck.', tip: 'Dein neutrales Gesicht sendet ständig Signale — mache sie positiv' },
-                    { situation: 'Warmth-Signal senden beim ersten Kontakt', text: 'Guten Morgen! [leichtes Lächeln, Blickkontakt] Schön, Sie zu treffen.', tip: 'Warmth kommt vor Power — erst Vertrauen, dann Respekt' },
-                    { situation: 'Power-Signal setzen bei Vorstellung', text: '[Aufrechte Haltung, fester Händedruck] Ich bin [Name], verantwortlich für [Bereich]. Ich freue mich auf den Austausch.', tip: 'Langsam sprechen, Pausen machen — Power braucht keine Eile' },
-                    { situation: 'Den Halo-Effekt nutzen', text: '[Bewusst langsam sprechen, Pausen einsetzen] Lassen Sie mich kurz meine Perspektive teilen...', tip: 'Amy Cuddy: Wer langsam spricht und pausiert, wirkt mächtig und kompetent' },
-                    { situation: 'Thin-Slicing bewusst steuern', text: 'Die ersten drei Sekunden zählen. Atme ein. Haltung. Lächeln. Blickkontakt. Dann sprich.', tip: 'Die 3-Sekunden-Checkliste vor jedem wichtigen Kontakt' },
-                    { situation: 'Balance zwischen Warmth und Power', text: '[Nahbar UND kompetent] Ich finde Ihren Ansatz spannend. Aus meiner Erfahrung mit [Expertise] sehe ich da großes Potenzial.', tip: 'Die Charisma-Formel: Warmth + Power = magnetische Wirkung' },
-                    { situation: 'Selbstcheck vor wichtigem Meeting', text: 'Körper-Scan: Schultern? Zurück. Gesicht? Entspannt. Tempo? Ruhig. Atmung? Tief. Ich bin bereit.', tip: 'Die 5-Punkte-Checkliste vor jedem High-Stakes-Moment' }
-                ],
-                en: [
-                    { situation: 'Entering a room — striking your posture', text: 'Imagine an invisible string pulling you upward from the top of your head. Shoulders back, chest open.', tip: 'The "string from the top" technique — instant posture correction' },
-                    { situation: 'Making eye contact — the golden rule', text: 'Hold eye contact for 2–3 seconds, then break naturally. Don\'t stare, don\'t look away.', tip: 'Too little = nervous, too much = intimidating — balance matters' },
-                    { situation: 'Entering the room with intention', text: 'No rushing, no hesitating. Move with purpose — as if you belong here.', tip: 'Charismatic people control their pace' },
-                    { situation: 'Controlling your resting face', text: 'Check your face: slight smile, relaxed brow, open expression.', tip: 'Your neutral face constantly sends signals — make them positive' },
-                    { situation: 'Sending a Warmth signal at first contact', text: 'Good morning! [slight smile, eye contact] Great to meet you.', tip: 'Warmth comes before Power — trust first, respect second' },
-                    { situation: 'Setting a Power signal during introductions', text: '[Upright posture, firm handshake] I\'m [Name], responsible for [area]. Looking forward to the exchange.', tip: 'Speak slowly, use pauses — Power needs no rush' },
-                    { situation: 'Leveraging the Halo Effect', text: '[Deliberately slow speech, strategic pauses] Let me briefly share my perspective...', tip: 'Amy Cuddy: Those who speak slowly and pause appear powerful and competent' },
-                    { situation: 'Consciously steering Thin-Slicing', text: 'The first three seconds matter. Breathe in. Posture. Smile. Eye contact. Then speak.', tip: 'The 3-second checklist before every important contact' },
-                    { situation: 'Balancing Warmth and Power', text: '[Approachable AND competent] I find your approach fascinating. From my experience with [expertise], I see tremendous potential there.', tip: 'The Charisma Formula: Warmth + Power = magnetic presence' },
-                    { situation: 'Self-check before an important meeting', text: 'Body scan: Shoulders? Back. Face? Relaxed. Pace? Calm. Breathing? Deep. I\'m ready.', tip: 'The 5-point checklist before every high-stakes moment' }
-                ]
-            },
-            quiz: [
-                {"question":{"de":"Welche zwei Dimensionen bewertet das Gehirn laut Amy Cuddy bei jeder Erstbegegnung?","en":"According to Amy Cuddy, which two dimensions does the brain evaluate in every first encounter?"},"type":"single","options":[{"de":"Intelligenz und Humor","en":"Intelligence and humor"},{"de":"Wärme (Warmth) und Kompetenz (Power)","en":"Warmth and Power"},{"de":"Status und Attraktivität","en":"Status and attractiveness"},{"de":"Erfahrung und Bildung","en":"Experience and education"}],"correct":1,"explanation":{"de":"Amy Cuddy identifizierte zwei fundamentale Fragen: \u201eKann ich dieser Person vertrauen?\u201c (Warmth) und \u201eKann ich diese Person respektieren?\u201c (Power). Die charismatischsten Menschen beherrschen die Balance zwischen beiden.","en":"Amy Cuddy identified two fundamental questions: 'Can I trust this person?' (Warmth) and 'Can I respect this person?' (Power). The most charismatic people master the balance between both."}},
-                {"question":{"de":"Was bedeutet 'Thin-Slicing'?","en":"What does 'Thin-Slicing' mean?"},"type":"single","options":[{"de":"Eine Methode, Präsentationen zu kürzen","en":"A method to shorten presentations"},{"de":"Die Fähigkeit des Gehirns, in Sekundenbruchteilen Urteile zu fällen","en":"The brain's ability to make judgments in split seconds"},{"de":"Eine Technik für Gehaltsverhandlungen","en":"A technique for salary negotiations"},{"de":"Ein Verfahren zur Datenanalyse","en":"A data analysis procedure"}],"correct":1,"explanation":{"de":"Thin-Slicing ist die blitzschnelle Mustererkennung des Gehirns — es verarbeitet riesige Informationsmengen in Bruchteilen von Sekunden und fällt sofortige Urteile über eine Person.","en":"Thin-Slicing is the brain's rapid pattern recognition — it processes massive amounts of information in fractions of a second and makes instant judgments about a person."}},
-                {"question":{"de":"Wie lange sollte man laut der goldenen Regel Blickkontakt halten?","en":"According to the golden rule, how long should you hold eye contact?"},"type":"single","options":[{"de":"5–7 Sekunden","en":"5–7 seconds"},{"de":"2–3 Sekunden, dann natürlich brechen","en":"2–3 seconds, then break naturally"},{"de":"So lange wie möglich","en":"As long as possible"},{"de":"Blickkontakt ist unwichtig","en":"Eye contact doesn't matter"}],"correct":1,"explanation":{"de":"Die goldene Regel: 2–3 Sekunden Blickkontakt, dann natürlich brechen. Zu wenig wirkt nervös oder desinteressiert, zu viel wirkt intensiv oder einschüchternd.","en":"The golden rule: 2–3 seconds of eye contact, then break naturally. Too little appears nervous or uninterested, too much appears intense or intimidating."}},
-                {"question":{"de":"Was beschreibt der Halo-Effekt?","en":"What does the Halo Effect describe?"},"type":"single","options":[{"de":"Dass heilige Menschen charismatischer sind","en":"That holy people are more charismatic"},{"de":"Dass ein einzelnes starkes Signal die gesamte Wahrnehmung beeinflusst","en":"That a single strong signal influences the entire perception"},{"de":"Dass Lichtverhältnisse den Eindruck verändern","en":"That lighting conditions change impressions"},{"de":"Dass nur der erste Satz zählt","en":"That only the first sentence matters"}],"correct":1,"explanation":{"de":"Der Halo-Effekt besagt: Ein einziges starkes positives Signal (z.B. selbstbewusste Körperhaltung) färbt die gesamte Wahrnehmung — auch in Bereichen, für die kein Beleg vorliegt.","en":"The Halo Effect states: A single strong positive signal (e.g., confident posture) colors the entire perception — even in areas where there is no evidence."}},
-                {"question":{"de":"Wahr oder Falsch: Charismatische Menschen sprechen schnell, um kompetent zu wirken.","en":"True or False: Charismatic people speak quickly to appear competent."},"type":"truefalse","options":[{"de":"Wahr","en":"True"},{"de":"Falsch","en":"False"}],"correct":1,"explanation":{"de":"Falsch. Amy Cuddy sagt: \u201eWenn wir uns mächtig fühlen, sprechen wir langsamer und nehmen uns mehr Zeit. Wir hetzen nicht. Wir haben keine Angst vor Pausen.\u201c Langsames Sprechen signalisiert Souveränität.","en":"False. Amy Cuddy says: 'When we feel powerful, we speak more slowly and take more time. We don't rush. We're not afraid to pause.' Slow speech signals confidence."}},
-                {"question":{"de":"Welche drei nonverbalen Elemente entscheiden in den ersten Sekunden über den Gesamteindruck?","en":"Which three nonverbal elements determine the overall impression in the first seconds?"},"type":"single","options":[{"de":"Kleidung, Frisur, Schmuck","en":"Clothing, hairstyle, jewelry"},{"de":"Körperhaltung, Blickkontakt, Mimik","en":"Posture, eye contact, facial expression"},{"de":"Händedruck, Stimme, Gang","en":"Handshake, voice, gait"},{"de":"Visitenkarte, Titel, Firmennamen","en":"Business card, title, company name"}],"correct":1,"explanation":{"de":"Die drei Säulen des ersten Eindrucks sind Körperhaltung (aufrecht = Selbstbewusstsein), Blickkontakt (2-3 Sekunden) und Mimik (leichtes Lächeln = nahbar und kompetent).","en":"The three pillars of first impressions are posture (upright = confidence), eye contact (2-3 seconds) and facial expression (slight smile = approachable and competent)."}},
-                {"question":{"de":"Sie betreten ein Board-Meeting. Was ist die beste 3-Sekunden-Strategie?","en":"You enter a board meeting. What's the best 3-second strategy?"},"type":"scenario","options":[{"de":"Schnell zum nächsten Stuhl gehen und sich setzen","en":"Quickly go to the nearest chair and sit down"},{"de":"Laut 'Guten Morgen' rufen, um Aufmerksamkeit zu bekommen","en":"Loudly call 'Good morning' to get attention"},{"de":"Kurz pausieren, Schultern zurück, leichtes Lächeln, dann mit Intention den Raum betreten","en":"Pause briefly, shoulders back, slight smile, then enter the room with intention"},{"de":"Sofort mit dem Handy beschäftigt aussehen, um wichtig zu wirken","en":"Immediately look busy with your phone to appear important"}],"correct":2,"explanation":{"de":"Die 3-Sekunden-Strategie nutzt alle Säulen: Pausieren (Power durch Kontrolle), aufrechte Haltung (Kompetenz-Signal), leichtes Lächeln (Warmth-Signal). Du aktivierst den Halo-Effekt positiv und steuerst das Thin-Slicing zu deinen Gunsten.","en":"The 3-second strategy uses all pillars: Pausing (Power through control), upright posture (competence signal), slight smile (Warmth signal). You activate the Halo Effect positively and steer Thin-Slicing in your favor."}},
-                {"question":{"de":"Wahr oder Falsch: Man muss der Lauteste im Raum sein, um charismatisch zu wirken.","en":"True or False: You need to be the loudest person in the room to appear charismatic."},"type":"truefalse","options":[{"de":"Wahr","en":"True"},{"de":"Falsch","en":"False"}],"correct":1,"explanation":{"de":"Falsch. Charisma erfordert keine Extroversion. Subtile Kontrolle reicht — bewusste Bewegungen, kontrollierte Mimik und die Balance aus Warmth und Power erzeugen magnetische Präsenz, ohne laut zu sein.","en":"False. Charisma doesn't require extroversion. Subtle control suffices — conscious movements, controlled expression and the balance of Warmth and Power create magnetic presence without being loud."}}
-            ]
-        };
-
-var allLessons = [lesson1, lesson2, lesson3, lesson4, lesson5, lesson6, lesson7, lesson8, lesson9, lesson10, lesson11];
+var allLessons = [lesson1, lesson2, lesson3, lesson4, lesson5, lesson6, lesson7, lesson8, lesson9, lesson10];
 var lessons = allLessons;
 
         // MANIPULATION TECHNIQUES
@@ -3666,16 +3588,16 @@ function Dashboard({
     v: Math.min(avg, 100)
   }, {
     s: state.lang === 'de' ? 'Gesprächstechnik' : 'Conversation',
-    v: Math.min(cc * 10, 100)
+    v: Math.min(cc * 12, 100)
   }, {
     s: state.lang === 'de' ? 'Menschenkenntnis' : 'People Skills',
-    v: Math.min(cc * 9 + avg * 0.2, 100)
+    v: Math.min(cc * 10 + avg * 0.2, 100)
   }, {
     s: state.lang === 'de' ? 'Situationsgespür' : 'Awareness',
-    v: Math.min(cc * 11, 100)
+    v: Math.min(cc * 13, 100)
   }, {
     s: state.lang === 'de' ? 'Souveränität' : 'Confidence',
-    v: Math.min(avg * 1.05 + cc * 2.5, 100)
+    v: Math.min(avg * 1.05 + cc * 3, 100)
   }];
   return /*#__PURE__*/React.createElement("div", {
     className: "fade-in"
@@ -3689,7 +3611,7 @@ function Dashboard({
     className: "hero-title"
   }, currentLevel.name[state.lang]), /*#__PURE__*/React.createElement("div", {
     className: "hero-sub"
-  }, cc, "/11 ", t('lessonsCompleted'), " \xB7 ", avg, "% ", t('avgScore')), /*#__PURE__*/React.createElement("div", {
+  }, cc, "/10 ", t('lessonsCompleted'), " \xB7 ", avg, "% ", t('avgScore')), /*#__PURE__*/React.createElement("div", {
     className: "hero-subtitle"
   }, state.lang === 'de' ? 'Meistere die Kunst der professionellen Kommunikation' : 'Master the art of professional communication')), /*#__PURE__*/React.createElement("div", {
     className: "kpi-grid"
@@ -3701,7 +3623,7 @@ function Dashboard({
     className: "kpi-value"
   }, cc, /*#__PURE__*/React.createElement("span", {
     className: "kpi-total"
-  }, "/11")), /*#__PURE__*/React.createElement("div", {
+  }, "/10")), /*#__PURE__*/React.createElement("div", {
     className: "kpi-label"
   }, t('lessonsCompleted'))), /*#__PURE__*/React.createElement("div", {
     className: "kpi-card"
@@ -3781,7 +3703,7 @@ function LessonsView({
     className: "section-title"
   }, t('lessons')), /*#__PURE__*/React.createElement("div", {
     className: "section-sub"
-  }, Object.keys(state.lessonsCompleted).length, "/11 ", state.lang === 'de' ? 'abgeschlossen' : 'completed')), /*#__PURE__*/React.createElement("div", {
+  }, Object.keys(state.lessonsCompleted).length, "/10 ", state.lang === 'de' ? 'abgeschlossen' : 'completed')), /*#__PURE__*/React.createElement("div", {
     className: "lesson-grid"
   }, lessons.map(lesson => {
     const done = state.lessonsCompleted[lesson.id];
@@ -3924,7 +3846,7 @@ function QuizComponent({
   }, state.lang === 'de' ? 'Bald verfügbar' : 'Coming soon');
   if (done) {
     const pct = Math.round(score / qs.length * 100);
-    const hasNext = lesson.id < 11;
+    const hasNext = lesson.id < 10;
     const isLow = pct < 50;
     const saveAndClose = () => {
       dispatch({
